@@ -1,20 +1,106 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rhythm — daily check-in</title>
-<style>
-:root{--ink:#23302c;--muted:#718078;--paper:#f7f5ee;--card:#fffef9;--line:#dfe4d8;--moss:#2f6755;--mint:#c9dfcc;--sun:#f3c969;--rose:#eaa69a;--lav:#c9c3e8}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 "Book Antiqua","Palatino Linotype",Palatino,serif}.app{max-width:1120px;margin:auto;padding:28px 24px 48px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}.brand{font:italic 31px/1 "Book Antiqua","Palatino Linotype",serif;letter-spacing:-1px}.brand i{color:var(--moss);font-style:normal}.date,.sub,small,textarea,input,button{font-family:"Trebuchet MS",Arial,sans-serif}.date,.sub,small{color:var(--muted);font-size:13px}.layout{display:grid;grid-template-columns:1.08fr .92fr;gap:24px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 3px 0 rgba(35,48,44,.025)}h1,h2,p{margin:0}h1{font-size:35px;line-height:1.12;letter-spacing:-1.5px;max-width:500px}h2{font:600 12px/1.2 "Trebuchet MS",sans-serif;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}.sub{margin-top:10px}.today-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:23px}.count{background:var(--mint);color:var(--moss);padding:6px 11px;border-radius:100px;font:700 13px "Trebuchet MS",sans-serif}.habit-list{display:grid;gap:11px}.habit{display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer}.habit.done{background:#f1f7ef;border-color:#b8d6bd}.habit input[type=checkbox]{appearance:none;width:21px;height:21px;border:2px solid #b9c4bc;border-radius:7px;margin:0;display:grid;place-content:center}.habit input[type=checkbox]:checked{background:var(--moss);border-color:var(--moss)}.habit input[type=checkbox]:checked:after{content:"✓";color:white;font-size:14px;font-weight:bold}.habit strong{font-family:"Trebuchet MS",sans-serif;font-weight:600}.habit-note{display:block;width:100%;border:0;border-bottom:1px dashed transparent;background:transparent;color:var(--muted);font-size:13px;padding:1px 0;margin-top:2px}.habit-note:hover,.habit-note:focus{border-bottom-color:var(--moss);outline:0}.dot{width:9px;height:9px;border-radius:50%;margin-left:auto}.move{background:var(--sun)}.read{background:var(--lav)}.rest{background:var(--rose)}button{cursor:pointer}.under{border:0;background:none;color:var(--moss);font-weight:700;padding:5px 0}.manage{margin-left:12px;color:var(--muted)}.right{display:grid;gap:24px}.pulse{background:var(--moss);color:white;border:0}.pulse h2{color:#d0e4d4}.pulse-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:19px}.metric b{font-size:38px;font-weight:400;line-height:1}.metric span{font:12px "Trebuchet MS",sans-serif;opacity:.8;display:block;margin-top:5px}.mood{display:flex;gap:7px;margin-top:10px}.mood button,.nav button{border:1px solid var(--line);border-radius:10px;background:white}.mood button{font-size:20px;padding:7px 10px}.mood button.selected{background:var(--sun);border-color:var(--sun)}.month-top,.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.nav{display:flex;gap:7px}.nav button{width:31px;height:29px;color:var(--ink)}.week,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.week{color:var(--muted);font:10px "Trebuchet MS",sans-serif;text-align:center;margin-bottom:7px}.day{aspect-ratio:1;border:0;border-radius:9px;background:#f0f1eb;color:var(--muted);font:12px "Trebuchet MS",sans-serif}.day[data-level="1"]{background:#e5f0e5}.day[data-level="2"]{background:#bcd9bf;color:var(--ink)}.day[data-level="3"]{background:var(--moss);color:white}.day.today{outline:2px solid var(--sun);outline-offset:2px}.day.empty{visibility:hidden}.legend{display:flex;gap:7px;align-items:center;color:var(--muted);font:11px "Trebuchet MS",sans-serif;margin-top:13px}.squares{display:flex;gap:3px}.sq{width:11px;height:11px;border-radius:3px;background:#f0f1eb}.sq:nth-child(2){background:#e5f0e5}.sq:nth-child(3){background:#bcd9bf}.sq:nth-child(4){background:var(--moss)}.journal{grid-column:1/-1}.field{width:100%;resize:vertical;min-height:77px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px;color:var(--ink);margin-top:9px}.delayed{display:grid;grid-template-columns:1fr auto;gap:9px;margin-top:16px}.delayed input{min-width:0;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}.delayed button,.chip button{border:0;border-radius:10px;padding:10px 13px;background:var(--moss);color:#fff;font-weight:700}.delayed-list{display:grid;gap:8px;margin-top:11px}.chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-family:"Trebuchet MS",sans-serif;font-size:13px}.chip button{margin-left:auto;padding:2px 7px;background:transparent;color:var(--muted);font-size:18px}.modal{position:fixed;inset:0;background:#23302c66;display:grid;place-items:center;padding:18px}.modal[hidden]{display:none}.modal-box{max-width:450px;width:100%;background:var(--card);border-radius:20px;padding:24px}.modal input{width:100%;padding:10px;margin:8px 0;border:1px solid var(--line);border-radius:9px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:14px}.modal-actions button{border:0;border-radius:9px;padding:9px 13px}.modal-actions .primary{background:var(--moss);color:white}@media(max-width:760px){.layout{grid-template-columns:1fr}.journal{grid-column:auto}.app{padding:20px 15px}.top{margin-bottom:23px}h1{font-size:30px}}
-</style></head><body><main class="app"><header class="top"><div class="brand">r<i>h</i>ythm</div><div id="date" class="date"></div></header><section class="layout">
-<article class="card"><div class="today-head"><div><h1>Small actions, kept gently.</h1><p class="sub">Pick up where you are. Today only needs your next step.</p></div><span id="count" class="count">0 / 3</span></div><div id="habits" class="habit-list"></div><button id="add" class="under">+ Add habit</button><button id="habitSettings" class="under manage">Manage habits</button></article>
-<aside class="right"><article class="card pulse"><h2>Your pulse</h2><div class="pulse-grid"><div class="metric"><b id="streak">0</b><span>current-day streak</span></div><div class="metric"><b id="monthPercent">0%</b><span>this month</span></div></div></article><article class="card"><h2>How are you arriving?</h2><div class="mood" id="mood"><button>🌧️</button><button>🌿</button><button>☀️</button><button>✨</button></div></article></aside>
-<article class="card month"><div class="month-top"><h2 id="monthName">Month</h2><div class="nav"><button id="prev">‹</button><button id="next">›</button></div></div><div class="week"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div id="calendar" class="grid"></div><div class="legend"><span>less</span><span class="squares"><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i></span><span>more</span></div></article>
-<article class="card journal"><div class="row"><h2>Today’s page</h2><span class="date">Saved automatically</span></div><label class="date" for="remarks">Remark, win, or a note to yourself</label><textarea class="field" id="remarks" placeholder="How did today feel? What would you like to remember?"></textarea><div class="delayed"><input id="delayedInput" placeholder="Add a delayed work or follow-up"><button id="delayedAdd">Add</button></div><div id="delayedList" class="delayed-list"></div></article>
-</section></main><div id="modal" class="modal" hidden><div class="modal-box"><h2>Manage habits</h2><div id="habitManager"></div><div class="modal-actions"><button id="closeModal">Close</button><button id="newHabit" class="primary">+ New habit</button></div></div></div>
-<script>
-const defaults=[{name:'Move',hint:'ten minutes of movement',kind:'move'},{name:'Read',hint:'a few pages, no pressure',kind:'read'},{name:'Unwind',hint:'screen-free before sleep',kind:'rest'}];let state=JSON.parse(localStorage.getItem('rhythm-v2')||localStorage.getItem('rhythm-v1')||'null')||{habits:defaults,checks:{},mood:null,remarks:{},delayed:[]};state.remarks??={};state.delayed??=[];const today=new Date();today.setHours(0,0,0,0);let shown=new Date(today.getFullYear(),today.getMonth(),1);const id=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const save=()=>localStorage.setItem('rhythm-v2',JSON.stringify(state));const count=k=>(state.checks[k]||[]).length;
-function render(){let key=id(today),done=state.checks[key]||[];date.textContent=today.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});countEl.textContent=`${done.length} / ${state.habits.length}`;habits.innerHTML=state.habits.map((h,i)=>`<label class="habit ${done.includes(i)?'done':''}"><input type="checkbox" data-i="${i}" ${done.includes(i)?'checked':''}><span><strong>${h.name}</strong><input class="habit-note" data-habit-note="${i}" value="${h.hint}" aria-label="Description for ${h.name}"></span><i class="dot ${h.kind}"></i></label>`).join('');document.querySelectorAll('.habit input[type=checkbox]').forEach(x=>x.onchange=e=>{let n=+e.target.dataset.i,a=state.checks[key]||[];state.checks[key]=e.target.checked?[...a,n]:a.filter(v=>v!==n);save();render()});document.querySelectorAll('[data-habit-note]').forEach(x=>x.onchange=()=>{state.habits[+x.dataset.habitNote].hint=x.value.trim()||'A small, meaningful step';save();render()});remarks.value=state.remarks[key]||'';delayedList.innerHTML=state.delayed.map((x,i)=>`<div class="chip"><span>${x}</span><button data-remove="${i}" aria-label="Remove delayed work">×</button></div>`).join('')||'<span class="date">Nothing waiting yet.</span>';document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{state.delayed.splice(+b.dataset.remove,1);save();render()});let s=0,d=new Date(today);while(count(id(d))){s++;d.setDate(d.getDate()-1)}streak.textContent=s;let days=new Date(today.getFullYear(),today.getMonth()+1,0).getDate(),total=0;for(let i=1;i<=days;i++)total+=count(id(new Date(today.getFullYear(),today.getMonth(),i)));monthPercent.textContent=`${Math.round(total/(days*state.habits.length)*100)}%`;monthName.textContent=shown.toLocaleDateString(undefined,{month:'long',year:'numeric'});let first=new Date(shown),pad=(first.getDay()+6)%7,last=new Date(shown.getFullYear(),shown.getMonth()+1,0).getDate(),cal='';for(let i=0;i<pad;i++)cal+='<i class="day empty"></i>';for(let n=1;n<=last;n++){let d=new Date(shown.getFullYear(),shown.getMonth(),n),k=id(d);cal+=`<button class="day ${k===key?'today':''}" data-level="${Math.min(3,count(k))}">${n}</button>`}calendar.innerHTML=cal;document.querySelectorAll('#mood button').forEach((b,i)=>b.classList.toggle('selected',state.mood===i));}
-const date=document.querySelector('#date'),countEl=document.querySelector('#count'),habits=document.querySelector('#habits'),remarks=document.querySelector('#remarks'),delayedList=document.querySelector('#delayedList'),calendar=document.querySelector('#calendar'),monthName=document.querySelector('#monthName'),streak=document.querySelector('#streak'),monthPercent=document.querySelector('#monthPercent'),settingsButton=document.querySelector('#habitSettings');remarks.oninput=()=>{state.remarks[id(today)]=remarks.value;save()};document.querySelector('#delayedAdd').onclick=()=>{let v=delayedInput.value.trim();if(v){state.delayed.push(v);delayedInput.value='';save();render()}};document.querySelector('#prev').onclick=()=>{shown.setMonth(shown.getMonth()-1);render()};document.querySelector('#next').onclick=()=>{shown.setMonth(shown.getMonth()+1);render()};document.querySelectorAll('#mood button').forEach((b,i)=>b.onclick=()=>{state.mood=i;save();render()});function renderManager(){habitManager.innerHTML=state.habits.map((h,i)=>`<div class="chip"><span><input data-rename="${i}" value="${h.name}" aria-label="Habit name"><input data-hint="${i}" value="${h.hint}" aria-label="Habit description"></span><button data-delete="${i}" aria-label="Remove ${h.name}">×</button></div>`).join('');document.querySelectorAll('[data-rename]').forEach(x=>x.onchange=()=>{state.habits[+x.dataset.rename].name=x.value.trim()||'Habit';save();render();renderManager()});document.querySelectorAll('[data-hint]').forEach(x=>x.onchange=()=>{state.habits[+x.dataset.hint].hint=x.value.trim()||'A small, meaningful step';save();render();renderManager()});document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{let n=+b.dataset.delete;state.habits.splice(n,1);Object.keys(state.checks).forEach(k=>state.checks[k]=(state.checks[k]||[]).filter(v=>v!==n).map(v=>v>n?v-1:v));save();render();renderManager()})}add.onclick=()=>{let n=prompt('Habit name');if(n){state.habits.push({name:n,hint:'a small, meaningful step',kind:'move'});save();render()}};settingsButton.onclick=()=>{modal.hidden=false;renderManager()};closeModal.onclick=()=>modal.hidden=true;newHabit.onclick=()=>{let n=prompt('Habit name');if(n){state.habits.push({name:n,hint:'a small, meaningful step',kind:'move'});save();render();renderManager()}};render();
-const weekly=document.createElement('article');weekly.className='card';weekly.style.gridColumn='1/-1';weekly.innerHTML='<div class="row"><h2>Weekly progress</h2><b id="weekRate">0%</b></div><div id="weekBars" class="week-bars" role="img" aria-label="Habit completion for the last seven days"></div>';document.querySelector('.journal').before(weekly);const weeklyStyle=document.createElement('style');weeklyStyle.textContent='.week-bars{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:end;height:130px}.week-bar{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:7px;font:11px "Trebuchet MS",sans-serif;color:var(--muted)}.week-bar i{display:block;width:100%;max-width:38px;min-height:3px;background:var(--moss);border-radius:8px 8px 3px 3px}.week-bar b{font-weight:400;color:var(--ink)}';document.head.append(weeklyStyle);function updateWeek(){let days=Array.from({length:7},(_,i)=>{let d=new Date(today);d.setDate(d.getDate()-6+i);return d}),total=days.reduce((s,d)=>s+count(id(d)),0),possible=7*state.habits.length;document.querySelector('#weekRate').textContent=possible?`${Math.round(total/possible*100)}%`:'';document.querySelector('#weekBars').innerHTML=days.map(d=>{let n=count(id(d)),pct=state.habits.length?n/state.habits.length*100:0;return `<div class="week-bar" aria-label="${d.toLocaleDateString(undefined,{weekday:'long'})}: ${n} habits"><b>${n}</b><i style="height:${pct}%"></i><span>${d.toLocaleDateString(undefined,{weekday:'short'})}</span></div>`}).join('')}const originalRender=render;render=()=>{originalRender();updateWeek()};updateWeek();
-const review=document.createElement('div');review.className='modal';review.hidden=true;review.innerHTML='<div class="modal-box"><div class="row"><h2 id="reviewTitle">Day review</h2><button id="reviewClose" class="under">Close</button></div><p id="reviewSummary" class="sub"></p><div id="reviewHabits" class="delayed-list" style="margin-top:16px"></div><div style="margin-top:18px"><h2>Remark</h2><p id="reviewRemark" class="sub" style="white-space:pre-wrap;margin-top:8px"></p></div></div>';document.body.append(review);document.head.append(Object.assign(document.createElement('style'),{textContent:'.review-done{color:var(--moss)}.review-empty{color:var(--muted);font-family:"Trebuchet MS",sans-serif;font-size:13px}'}));document.querySelector('#reviewClose').onclick=()=>review.hidden=true;calendar.addEventListener('click',event=>{let button=event.target.closest('.day:not(.empty)');if(!button)return;let selected=new Date(shown.getFullYear(),shown.getMonth(),Number(button.textContent)),selectedKey=id(selected),completed=state.checks[selectedKey]||[];document.querySelector('#reviewTitle').textContent=selected.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});document.querySelector('#reviewSummary').textContent=`${completed.length} of ${state.habits.length} habits completed`;let list=document.querySelector('#reviewHabits');list.innerHTML='';state.habits.forEach((habit,index)=>{let item=document.createElement('div');item.className='chip '+(completed.includes(index)?'review-done':'');item.textContent=(completed.includes(index)?'✓ ':'○ ')+habit.name;list.append(item)});document.querySelector('#reviewRemark').textContent=state.remarks[selectedKey]||'No remark was saved for this day.';review.hidden=false});
-const quotes=['Consistency is quiet power, repeated.','Begin before you feel ready; momentum will meet you there.','A small promise kept today becomes self-trust tomorrow.','Progress does not need to be loud to be real.','Your future is shaped by the ordinary choices you honour.','One focused step is stronger than a perfect plan left undone.','Show up gently. The strength comes from returning.'];const quoteCard=document.createElement('article');quoteCard.className='card';quoteCard.style.gridColumn='1/-1';quoteCard.innerHTML='<h2>Today’s momentum</h2><p class="quote-text"></p>';quoteCard.querySelector('.quote-text').textContent=quotes[Math.floor(today.getTime()/86400000)%quotes.length];document.querySelector('.layout').prepend(quoteCard);document.head.append(Object.assign(document.createElement('style'),{textContent:'.quote-text{font:italic 25px/1.25 "Book Antiqua","Palatino Linotype",serif;margin-top:9px;max-width:760px;color:var(--moss)}'}));
-document.title='Rhythm — daily check-in';document.querySelector('.brand').textContent='rhythm';
-const authStyle=document.createElement('style');authStyle.textContent='.auth-screen{position:fixed;inset:0;background:var(--paper);z-index:20;display:grid;place-items:center;padding:20px}.auth-box{width:min(100%,420px);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}.auth-box h1{font-size:30px}.auth-box input{width:100%;padding:11px;margin-top:12px;border:1px solid var(--line);border-radius:10px}.auth-box button{width:100%;margin-top:15px;border:0;border-radius:10px;padding:11px;background:var(--moss);color:white;font-weight:700}.auth-error{color:#a83b32;font:13px "Trebuchet MS",sans-serif;margin-top:10px}.logout{border:0;background:none;color:var(--moss);font:12px "Trebuchet MS",sans-serif;text-decoration:underline;padding:0;margin-top:5px}';document.head.append(authStyle);const auth=document.createElement('section');auth.className='auth-screen';document.body.append(auth);async function passHash(value){let bytes=new TextEncoder().encode(value),digest=await crypto.subtle.digest('SHA-256',bytes);return Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('')}function authScreen(message=''){let account=JSON.parse(localStorage.getItem('rhythm-account')||'null'),isNew=!account;auth.innerHTML=`<div class="auth-box"><h1>${isNew?'Create your login':'Welcome back'}</h1><p class="sub">${isNew?'Choose credentials for this device.':'Sign in to continue your rhythm.'}</p><input id="authUser" autocomplete="username" placeholder="Username" ${isNew?'':'value="'+account.username+'"'}><input id="authPass" type="password" autocomplete="current-password" placeholder="Password"><input id="authConfirm" type="password" placeholder="Confirm password" ${isNew?'':'hidden'}><button id="authSubmit">${isNew?'Create account':'Sign in'}</button><p class="auth-error">${message}</p></div>`;document.querySelector('#authSubmit').onclick=async()=>{let user=document.querySelector('#authUser').value.trim(),password=document.querySelector('#authPass').value,confirm=document.querySelector('#authConfirm').value;if(!user||password.length<4)return authScreen('Use a username and a password of at least 4 characters.');if(isNew&&password!==confirm)return authScreen('Passwords do not match.');let hash=await passHash(user+'|'+password);if(isNew){localStorage.setItem('rhythm-account',JSON.stringify({username:user,hash}));auth.remove()}else if(user===account.username&&hash===account.hash){auth.remove()}else authScreen('Username or password is incorrect.')}}authScreen();const logout=document.createElement('button');logout.className='logout';logout.textContent='Log out';document.querySelector('.top').append(logout);logout.onclick=()=>{document.body.append(auth);authScreen()};
-</script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rhythm — daily check-in</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <div class="brand">r<i>h</i>ythm</div>
+        <div id="date" class="date"></div>
+      </header>
+      <section class="layout">
+        <article class="card">
+          <div class="today-head">
+            <div>
+              <h1>Small actions, kept gently.</h1>
+              <p class="sub">
+                Pick up where you are. Today only needs your next step.
+              </p>
+            </div>
+            <span id="count" class="count">0 / 3</span>
+          </div>
+          <div id="habits" class="habit-list"></div>
+          <button id="add" class="under">+ Add habit</button
+          ><button id="habitSettings" class="under manage">
+            Manage habits
+          </button>
+        </article>
+        <aside class="right">
+          <article class="card pulse">
+            <h2>Your pulse</h2>
+            <div class="pulse-grid">
+              <div class="metric">
+                <b id="streak">0</b><span>current-day streak</span>
+              </div>
+              <div class="metric">
+                <b id="monthPercent">0%</b><span>this month</span>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <h2>How are you arriving?</h2>
+            <div class="mood" id="mood">
+              <button>🌧️</button><button>🌿</button><button>☀️</button
+              ><button>✨</button>
+            </div>
+          </article>
+        </aside>
+        <article class="card month">
+          <div class="month-top">
+            <h2 id="monthName">Month</h2>
+            <div class="nav">
+              <button id="prev">‹</button><button id="next">›</button>
+            </div>
+          </div>
+          <div class="week">
+            <span>M</span><span>T</span><span>W</span><span>T</span
+            ><span>F</span><span>S</span><span>S</span>
+          </div>
+          <div id="calendar" class="grid"></div>
+          <div class="legend">
+            <span>less</span
+            ><span class="squares"
+              ><i class="sq"></i><i class="sq"></i><i class="sq"></i
+              ><i class="sq"></i></span
+            ><span>more</span>
+          </div>
+        </article>
+        <article class="card journal">
+          <div class="row">
+            <h2>Today’s page</h2>
+            <span class="date">Saved automatically</span>
+          </div>
+          <label class="date" for="remarks"
+            >Remark, win, or a note to yourself</label
+          ><textarea
+            class="field"
+            id="remarks"
+            placeholder="How did today feel? What would you like to remember?"
+          ></textarea>
+          <div class="delayed">
+            <input
+              id="delayedInput"
+              placeholder="Add a delayed work or follow-up"
+            /><button id="delayedAdd">Add</button>
+          </div>
+          <div id="delayedList" class="delayed-list"></div>
+        </article>
+      </section>
+    </main>
+    <div id="modal" class="modal" hidden>
+      <div class="modal-box">
+        <h2>Manage habits</h2>
+        <div id="habitManager"></div>
+        <div class="modal-actions">
+          <button id="closeModal">Close</button
+          ><button id="newHabit" class="primary">+ New habit</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
